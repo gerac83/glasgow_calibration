@@ -1,0 +1,5 @@
+<launch>
+     <arg name="camera_link_pose" default="0.682448 0.312062 0.181828 3.14159 -1.76098e-06 8.369e-05"/>
+     <node pkg="tf" type="static_transform_publisher" name="camera_optical_frame_broadcaster"
+               args="$(arg camera_link_pose) /torso /camera_rgb_optical_frame 100" />
+</launch>

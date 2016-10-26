@@ -1,0 +1,19 @@
+<!--
+	Launch file for Baxter's hand-eye calibration
+	
+	After launching this file...
+		
+	SoCS, UoG. Gerardo Aragon-Camarasa & Aamir Khan. 09/2016
+-->
+
+<launch>
+
+	<include file="$(find openni_launch)/launch/openni.launch">
+    </include>
+	<node pkg="twodto3d" type="twodto3d" name="twodto3d" output="screen">
+	</node>
+	<node pkg="twodto3d" type="transform_pub" name="transform_pub" output="screen">
+	</node>
+	
+</launch>
+
