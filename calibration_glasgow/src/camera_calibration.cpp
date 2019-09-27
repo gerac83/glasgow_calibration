@@ -156,7 +156,7 @@ bool Calibration::runExtrinsic(Mat cameraMatrix, Mat distCoeffs, vector<Point2f>
     try
     {
         Mat inliers;
-        solvePnPRansac(objectPoints, imagePoints, cameraMatrix, distCoeffs, rvecEx, tvecEx, false, 100, 1.0, 50, inliers);
+        solvePnPRansac(objectPoints, imagePoints, cameraMatrix, distCoeffs, rvecEx, tvecEx, false, 100, 1.0, 0.5, inliers);
 
         return true;
     }

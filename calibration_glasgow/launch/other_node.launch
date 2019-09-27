@@ -8,12 +8,18 @@
 
 <launch>
 
-	<include file="$(find openni_launch)/launch/openni.launch">
-    </include>
-	<node pkg="twodto3d" type="twodto3d" name="twodto3d" output="screen">
-	</node>
-	<node pkg="twodto3d" type="transform_pub" name="transform_pub" output="screen">
-	</node>
+
+	<arg name="moveit_sensor_manager" default="baxter" />
+	<arg name="kinect" default="false" />
+	<arg name="xtion" default="false" />
+	<arg name="zed" default="true" />
+	<arg name="camera_link_pose" default="0.0 0.0 0.0 0.0 0.0 0.0"/>
+		<include file="$(find baxter_moveit_config)/launch/$(arg moveit_sensor_manager)_moveit_sensor_manager.launch" >
+		<arg name="kinect" value="$(arg kinect)" />
+		<arg name="xtion" value="$(arg xtion)" />
+		<arg name="zed" value="$(arg zed)" />
+		<arg name="camera_link_pose" default="$(arg camera_link_pose)"/>
+	</include>
 	
 </launch>
 

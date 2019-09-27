@@ -29,7 +29,7 @@ public:
     vector<Mat> rvecs_cam, tvecs_cam;
     vector<Mat> rvecs_rb2gripper, tvecs_rb2gripper;
 
-    string ROBOT_GRIPPER;
+    //string ROBOT_GRIPPER;
     string GRIPPER_LINK;
     string ROBOT_BASE;
 
@@ -220,8 +220,8 @@ public:
                 tf::StampedTransform transform, transform2;
                     try{
                       
-                      listener.waitForTransform("/kinect2_link", "/kinect2_rgb_optical_frame", ros::Time(0), ros::Duration(3.0));
-                      listener.lookupTransform("/kinect2_link", "/kinect2_rgb_optical_frame", ros::Time(0), transform);
+                      listener.waitForTransform("/base_link", "/zed_left_camera_optical_frame", ros::Time(0), ros::Duration(3.0));
+                      listener.lookupTransform("/base_link", "/zed_left_camera_optical_frame", ros::Time(0), transform);
                       //ROS_INFO("Successful.");
                     //  success = true;
                     }
@@ -467,7 +467,7 @@ private:
 
             // Two transformation required:
             //      1. Robot base to robot gripper
-            ROS_INFO_STREAM("Transform from: " << ROBOT_BASE << " to " << ROBOT_GRIPPER);
+            ROS_INFO_STREAM("Transform from: " << ROBOT_BASE << " to " << GRIPPER_LINK);
 
             tf::Quaternion q = transform_rotation;
             tf::Vector3 v = transform_translation;
