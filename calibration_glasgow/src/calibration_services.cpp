@@ -220,8 +220,8 @@ public:
                 tf::StampedTransform transform, transform2;
                     try{
                       
-                      listener.waitForTransform("/base_link", "/zed_left_camera_optical_frame", ros::Time(0), ros::Duration(3.0));
-                      listener.lookupTransform("/base_link", "/zed_left_camera_optical_frame", ros::Time(0), transform);
+                      listener.waitForTransform(BASE_LINK, CAMERA_FRAME, ros::Time(0), ros::Duration(3.0));
+                      listener.lookupTransform(BASE_LINK, CAMERA_FRAME, ros::Time(0), transform);
                       //ROS_INFO("Successful.");
                     //  success = true;
                     }
@@ -258,55 +258,7 @@ public:
 
                 printMatrix(H_rgb2of);
 
-
-                //   try{
-                      
-                //       listener.waitForTransform("/camera_link", "/camera_rgb_frame", ros::Time(0), ros::Duration(3.0));
-                //       listener.lookupTransform("/camera_link", "/camera_rgb_frame", ros::Time(0), transform2);
-                //       //ROS_INFO("Successful.");
-                //     //  success = true;
-                //     }
-                //     catch (tf::TransformException &ex) {
-                //       ROS_ERROR("%s",ex.what());
-                //   }
-
-                // q = transform2.getRotation();
-                // v = transform2.getOrigin();
-
-                // ROS_INFO_STREAM(q);
-                // ROS_INFO_STREAM(v);
-
-                // R = getRotation(q.getX(), q.getY(), q.getZ(), q.getW());
-                // transK = Mat::zeros(3,1, CV_32F);
-                // transK.at<float>(0) = v.getX();
-                // transK.at<float>(1) = v.getY();
-                // transK.at<float>(2) = v.getZ();
-
-                // Mat H_cl2rgb = Mat::eye(4,4, CV_32F);
-                // H_cl2rgb.at<float>(0,0) = (float)R.at<float>(0,0);
-                // H_cl2rgb.at<float>(0,1) = (float)R.at<float>(0,1);
-                // H_cl2rgb.at<float>(0,2) = (float)R.at<float>(0,2);
-                // H_cl2rgb.at<float>(1,0) = (float)R.at<float>(1,0);
-                // H_cl2rgb.at<float>(1,1) = (float)R.at<float>(1,1);
-                // H_cl2rgb.at<float>(1,2) = (float)R.at<float>(1,2);
-                // H_cl2rgb.at<float>(2,0) = (float)R.at<float>(2,0);
-                // H_cl2rgb.at<float>(2,1) = (float)R.at<float>(2,1);
-                // H_cl2rgb.at<float>(2,2) = (float)R.at<float>(2,2);
-
-                // H_cl2rgb.at<float>(0,3) = (float)transK.at<float>(0);
-                // H_cl2rgb.at<float>(1,3) = (float)transK.at<float>(1);
-                // H_cl2rgb.at<float>(2,3) = (float)transK.at<float>(2);
-
-                //printMatrix(H_cl2rgb);
-      //ros::Duration(1.0).sleep();
-   //   succe
-                // 1. rgb 2 optical frame
-                // 2. camera linl 2 rgb
-                // get torso 2 camera link
-                // *******************
-
-                //888888888888888888888888888888888888888888888888888888888888
-               // Mat rb2cl = rb2cam * H_rgb2of.inv() * H_cl2rgb.inv();
+                // Mat rb2cl = rb2cam * H_rgb2of.inv() * H_cl2rgb.inv();
                 Mat rb2cl = rb2cam * H_rgb2of.inv();
 
                 ROS_INFO_STREAM("Robot 2 camera link!!!");

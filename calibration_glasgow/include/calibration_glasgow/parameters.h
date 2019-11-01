@@ -22,12 +22,14 @@ static const char DEBUGQ[] = "/glasgow_calibration/debug";
 
 // Messages
 static const char CAM_SUB[] = "/Image_for_Calibration";
-static const char CAMERA_INFO[] = "Cam_info_for_Calibration";
+static const char CAMERA_INFO[] = "/Cam_info_for_Calibration";
 static const char TRANFORM_SUB[] = "/transform_GrippertoBase";
-
-
 
 //Services
 static const char HE_CALIB[] = "/glasgow_calibration/HandEyeCalibration";
+
+//Robot specific
+static const char BASE_LINK[] = "/base_link";
+static const char CAMERA_FRAME[] = "/zed_left_camera_optical_frame";
 
 #endif
