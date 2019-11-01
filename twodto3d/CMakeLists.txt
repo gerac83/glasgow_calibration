@@ -16,7 +16,6 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   sensor_msgs
   std_msgs
-  baxter_core_msgs
   trajectory_msgs
   
  
@@ -41,7 +40,6 @@ generate_messages(
   std_msgs
   sensor_msgs
   trajectory_msgs
-  baxter_core_msgs
   
   
 
@@ -59,7 +57,6 @@ generate_messages(
 
 catkin_package(INCLUDE_DIRS 
   CATKIN_DEPENDS
-  baxter_core_msgs
   
 LIBRARIES ${PROJECT_NAME}
 )
@@ -71,7 +68,6 @@ LIBRARIES ${PROJECT_NAME}
 include_directories(include)
 include_directories(
   ${catkin_INCLUDE_DIRS}
-  baxter_core_msgs
 
 )
 

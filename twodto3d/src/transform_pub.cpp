@@ -39,7 +39,7 @@
 #include <tf/transform_listener.h>
 #include "std_msgs/Float32MultiArray.h"
 #include "tf/message_filter.h"
-#include <baxter_core_msgs/DigitalIOState.h>
+// #include <baxter_core_msgs/DigitalIOState.h>
 #include <twodto3d/mymessage.h>
 #include <std_msgs/Time.h>
 #include <stdio.h>
