@@ -88,7 +88,7 @@ int main(int argc, char **argv)
     while (ros::ok())
     {
         char waitkey;
-        ROS_INFO("Press ENTER to start capturing!")
+        ROS_WARN("Press ENTER to start capturing!")
         std::cin >> waitkey; // This will wait until the user presses ENTER
         if (waitkey)
         {
